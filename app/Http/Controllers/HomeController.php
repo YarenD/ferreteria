@@ -10,6 +10,7 @@ class HomeController extends Controller
      * Create a new controller instance.
      *
      * @return void
+     * Se considera Auth middleware auth
      */
     public function __construct()
     {
