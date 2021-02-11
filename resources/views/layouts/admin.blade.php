@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{asset('css/adminlte.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -71,27 +72,47 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-box-open"></i>
+            <a href="{{ route('clasificacion.index') }}" class="nav-link">
+              <i class="fas fa-pallet ml-1"></i>
               <p>
-                Productos
+                 Clasificaciones
                 
               </p>
             </a>
          
           </li>
-          <li class="nav-item has-treeview">
-            <a  href="{{ route('logout') }}"  onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();" class="nav-link">
+       <li class="nav-item has-treeview">
+        <a href="{{route('producto.index')}}" class="nav-link">
+          <i class="nav-icon fas fa-box-open"></i>
+          <p>
+            Productos
             
-              <i class="nav-icon fas fa-sign-out-alt"></i>
-              <p>
-                Cerrar Sesión
-                
-              </p>
-            </a>
-          </li>
-         
+          </p>
+        </a>
+     
+      </li>
+      <li class="nav-item has-treeview">
+        <a href="{{route('producto.show')}}" class="nav-link">
+          <i class="far fa-images ml-1"></i>
+          <p>
+           Galeria de Productos
+            
+          </p>
+        </a>
+     
+      </li>
+      <li class="nav-item has-treeview">
+        <a  href="{{ route('logout') }}"  onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();" class="nav-link">
+        
+          <i class="nav-icon fas fa-sign-out-alt"></i>
+          <p>
+            Cerrar Sesión
+            
+          </p>
+        </a>
+      </li>
+     
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
