@@ -32,9 +32,18 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="https://adndigital.mx" class="nav-link">Contacto</a>
       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/clasificaciones" class="nav-link">Clasificaciones</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/productos" class="nav-link">Productos</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/galeria" class="nav-link">Galeria</a>
+      </li>
     </ul>
 
-    
+
 
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
   @csrf
@@ -70,28 +79,42 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-box-open"></i>
-              <p>
-                Productos
-                
+            <li class="nav-item has-treeview">
+            <a href="/clasificaciones" class="nav-link">
+                <i class="nav-icon fas fa-box-open"></i>
+                <p>
+                Clasificaciones
               </p>
             </a>
-         
+
+            <li class="nav-item has-treeview">
+            <a href="/productos" class="nav-link">
+                <i class="nav-icon fas fa-box-open"></i>
+                <p>
+                Productos
+              </p>
+            </a>
+
+            <li class="nav-item has-treeview">
+            <a href="/galeria" class="nav-link">
+                <i class="nav-icon fas fa-box-open"></i>
+                <p>
+                Galeria
+              </p>
+            </a>
           </li>
           <li class="nav-item has-treeview">
             <a  href="{{ route('logout') }}"  onclick="event.preventDefault();
             document.getElementById('logout-form').submit();" class="nav-link">
-            
+
               <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>
                 Cerrar Sesión
-                
+
               </p>
             </a>
           </li>
-         
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -111,7 +134,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-              
+
             </ol>
           </div>
         </div>
@@ -144,7 +167,7 @@
             <li>Galería de imágenes</li>
           </ul>
         A continuación están las instrucciones ✅ para que lo ayudes a eficientar su negocio: <br>
-      
+
          El proyecto está administrado con el controlador de versiones Git y alojado en GITHUB, por lo que necesitas clonarlo para empezar a trabajar.
          <ol>
            <li>Clona el siguiente proyecto de GitHub donde esta el proyecto de Pedro: https://github.com/YarenD/ferreteria.git</li>
@@ -152,7 +175,7 @@
            <li>Envia tu cuenta de GITHUB via correo a aldo@adndigital.mx con el asunto "Convocatoria Programación - Usuario GitHub" para agregarte como colaborador al repositorio y que puedas subir tu rama.</li>
            <li>Se deben ocupar migraciones para crear las tablas.</li>
          </ol>
-        
+
         Una vez preparado el proyecto, considera las siguientes requerimientos: 
 
         <ol>
@@ -160,28 +183,28 @@
             <p>
               Pedro requiere crear un CRUD con las clasificaciones de productos. Los campos para crear una clasificacion son: id (primary key), nombre, descripcion, color. Quiere que lleven un color para poder identificar visualmente y rápido en el catalogo de productos a que clasificación pertenence<br>
               Se tienen que generar la vista donde liste todas las clasificaciones con la siguiente información: nombre, descripcion, color, productos (cantidad de productos que pertenencen a esa clasificacion).
-              Pedro también podrá editar o borrar clasificaciones. 
+              Pedro también podrá editar o borrar clasificaciones.
             </p>
           </li>
           <li><b>Módulo de productos </b>
             <p>
               Se requiere hacer un CRUD de productos con la siguiente información que ocupa Pedro: id (primary key), id_clasificacion(relacion con la tabla de clasificaciones), sku (string), nombre, unidad_medida (string), descripcion (text), precio (decimal), foto(archivo imagen). <br>
               Se tienen que generar la vista donde liste todos los productos. En la lista Pedro quiere que se muestre sku, nombre, clasificación (el nombre NO el id y que se muestre del color de la clasificación), precio (en formato moneda).
-              Pedro también podrá editar o borrar productos. 
+              Pedro también podrá editar o borrar productos.
             </p>
           </li>
-          
+
           <li><b>Galeria </b>
             <p>
-              Pedro quiere ver una galería con todas las imagenes de los productos que tiene en la base de datos. 
+              Pedro quiere ver una galería con todas las imagenes de los productos que tiene en la base de datos.
             </p>
           </li>
         </ol>
 
         <p>
-          <p>Nota:</p> Recuerda que tienes hasta las 23:59 del jueves 12/02/2021 por que el viernes Pedro tiene que realizar una presentación de su proyecto. 
+          <p>Nota:</p> Recuerda que tienes hasta las 23:59 del jueves 12/02/2021 por que el viernes Pedro tiene que realizar una presentación de su proyecto.
         </p>
-        
+
         </div>
       </div>
       <!-- /.card -->

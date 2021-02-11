@@ -16,3 +16,7 @@ Route::get('/',  'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('clasificaciones', 'ClasificacionController');
+Route::resource('productos', 'ProductoController');
+Route::resource('galeria', 'GaleriaController');
