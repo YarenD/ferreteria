@@ -7,6 +7,9 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('\fontawesome\css\all.min.css')}}">
   <!-- Ionicons -->
@@ -71,10 +74,20 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="/productos" class="nav-link">
               <i class="nav-icon fas fa-box-open"></i>
               <p>
                 Productos
+                
+              </p>
+            </a>
+         
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="/clasificaciones" class="nav-link">
+              <i class="nav-icon fas fa-box-open"></i>
+              <p>
+                Clasificacion
                 
               </p>
             </a>
@@ -118,7 +131,43 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
+    <!--Contenido-->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+      <!-- Main content -->
+      <section class="content">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box">
+              <div class="box-header with-border">
+
+
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <!--Contenido-->
+                    @Yield ('contenido')
+                    <!--Fin Contenido-->
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+
+    {{-- <!-- Main content -->
     <section class="content">
 
       <!-- Default box -->
@@ -183,7 +232,7 @@
         </p>
         
         </div>
-      </div>
+      </div> --}}
       <!-- /.card -->
 
     </section>
