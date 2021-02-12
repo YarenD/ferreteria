@@ -8,13 +8,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
+  {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
   <link rel="stylesheet" href="{{asset('\fontawesome\css\all.min.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('css/adminlte.css')}}">
+  <link rel="stylesheet" href="{{asset('css/app.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.3.6/css/bootstrap-colorpicker.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.3.6/js/bootstrap-colorpicker.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -75,7 +84,6 @@
               <i class="nav-icon fas fa-box-open"></i>
               <p>
                 Clasificación
-
 
               </p>
             </a>
@@ -140,74 +148,9 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
-
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Instrucciones</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
-        </div>
-        <div class="card-body">
-          <p>Este Pedro 🧔🏻Pedro tiene una ferretería desde hace 10 años. El año pasado amplió su negocio y abrió una sucursal  en una ciudad contigua.Actualmente la ferretería de Pedro emplea a 32 personas, es decir, 32 familias dependen del empleo que él genera.
-          <br><br> Originalmente él lleva el control de su negocio🧮 en un Excel, por la abrir la sucursal, se dio cuenta de que eso no era suficiente para llevar en control de su catálogo de productos. <br>
-          Pedro conoció a Waldo Carranza en un evento de Networking  y al platicar acerca de sus negocios, se dio cuenta de que era posible, no sólo una administración más eficiente, sino también automatizada mediante la construcción de una Plataforma a la medida de sus necesidades.
-
-          <br>En esta etapa del proyecto de desarrollo necesita de tu ayuda para terminar desarrollar los siguientes módulos de su plataforma: 
-          <ul>
-            <li>Catálogo de productos</li>
-            <li>Galería de imágenes</li>
-          </ul>
-        A continuación están las instrucciones ✅ para que lo ayudes a eficientar su negocio: <br>
-
-         El proyecto está administrado con el controlador de versiones Git y alojado en GITHUB, por lo que necesitas clonarlo para empezar a trabajar.
-         <ol>
-           <li>Clona el siguiente proyecto de GitHub donde esta el proyecto de Pedro: https://github.com/YarenD/ferreteria.git</li>
-           <li>Una vez clonado crea una rama local con la estructura TUNOMBRE_APELLIDO. Esta rama será la que envíes despues al repositorio.</li>
-           <li>Envia tu cuenta de GITHUB via correo a aldo@adndigital.mx con el asunto "Convocatoria Programación - Usuario GitHub" para agregarte como colaborador al repositorio y que puedas subir tu rama.</li>
-           <li>Se deben ocupar migraciones para crear las tablas.</li>
-         </ol>
-
-        Una vez preparado el proyecto, considera las siguientes requerimientos: 
-
-        <ol>
-          <li><b>Módulo de Clasificaciones</b>
-            <p>
-              Pedro requiere crear un CRUD con las clasificaciones de productos. Los campos para crear una clasificacion son: id (primary key), nombre, descripcion, color. Quiere que lleven un color para poder identificar visualmente y rápido en el catalogo de productos a que clasificación pertenence<br>
-              Se tienen que generar la vista donde liste todas las clasificaciones con la siguiente información: nombre, descripcion, color, productos (cantidad de productos que pertenencen a esa clasificacion).
-              Pedro también podrá editar o borrar clasificaciones.
-            </p>
-          </li>
-          <li><b>Módulo de productos </b>
-            <p>
-              Se requiere hacer un CRUD de productos con la siguiente información que ocupa Pedro: id (primary key), id_clasificacion(relacion con la tabla de clasificaciones), sku (string), nombre, unidad_medida (string), descripcion (text), precio (decimal), foto(archivo imagen). <br>
-              Se tienen que generar la vista donde liste todos los productos. En la lista Pedro quiere que se muestre sku, nombre, clasificación (el nombre NO el id y que se muestre del color de la clasificación), precio (en formato moneda).
-              Pedro también podrá editar o borrar productos.
-            </p>
-          </li>
-
-          <li><b>Galeria </b>
-            <p>
-              Pedro quiere ver una galería con todas las imagenes de los productos que tiene en la base de datos.
-            </p>
-          </li>
-        </ol>
-
-        <p>
-          <p>Nota:</p> Recuerda que tienes hasta las 23:59 del jueves 12/02/2021 por que el viernes Pedro tiene que realizar una presentación de su proyecto.
-        </p>
-
-        </div>
-      </div>
-      <!-- /.card -->
-
-    </section>
+    <main class="py-4">
+        @yield('content')
+    </main>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -226,6 +169,7 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

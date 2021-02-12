@@ -16,3 +16,10 @@ Route::get('/',  'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/clasificacion', 'HomeController@clasificacion')->name('clasificacion');
+
+Route::resource('/clasificacion', 'ClasificacionController', ['except' => ['show']]);
+Route::resource('/ver', 'VerController', ['except' => ['show']]);
+
+Route::resource('/producto', 'ProductoController', ['except' => ['show']]);
+Route::resource('/galeria', 'GaleriaController', ['except' => ['show']]);
