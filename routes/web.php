@@ -12,6 +12,11 @@
 */
 
 Route::get('/',  'HomeController@index');
+Route::get('/products',  'ProductsController@index')->name('products');
+
+Route::resource('/clasifications',  'ClasificationsController');
+Route::resource('/products',  'ProductsController');
+Route::get('/gallery',  'ProductsController@gallery')->name('products.gallery');
 
 Auth::routes();
 
