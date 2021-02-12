@@ -87,7 +87,17 @@
             <a href="/clasificaciones" class="nav-link">
               <i class="nav-icon fas fa-box-open"></i>
               <p>
-                Clasificacion
+                Clasificaciones
+                
+              </p>
+            </a>
+         
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="/galeria" class="nav-link">
+              <i class="nav-icon fas fa-box-open"></i>
+              <p>
+                Galeria
                 
               </p>
             </a>

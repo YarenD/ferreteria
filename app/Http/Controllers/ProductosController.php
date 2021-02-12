@@ -177,4 +177,13 @@ class ProductosController extends Controller
 		
         return redirect('/productos');
     }
+
+    public function galery(){
+
+        $prod = Productos::all();
+       /*  dd($prod); */
+        return view('productos.galery', ["prod" => $prod]);
+
+
+    }
 }

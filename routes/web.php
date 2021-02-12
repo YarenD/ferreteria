@@ -13,6 +13,8 @@
 
 Route::resource('/clasificaciones','ClasificacionesController');
 Route::resource('/productos','ProductosController');
+Route::get('/galeria',  'ProductosController@galery');
+
 
 Route::get('/',  'HomeController@index');
 
