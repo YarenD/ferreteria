@@ -71,19 +71,19 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
-            <a href="{{ route('productos') }}" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-box-open"></i>
               <p>
                 Productos
               </p>
             </a>
             <a href="{{ route('clasificaciones') }}" class="nav-link">
-                <i class="nav-icon far fa-bookmark"></i>
+                <i class="nav-icon far fa-bookmark" ></i>
                 <p>
                   Clasificaciones
                 </p>
-              </a>
-          </li>
+            </li>
+        </a>
           <li class="nav-item has-treeview">
             <a  href="{{ route('logout') }}"  onclick="event.preventDefault();
             document.getElementById('logout-form').submit();" class="nav-link">
@@ -110,91 +110,54 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1><i class="fas fa-hammer    "></i> FERRETERIA DE PEDRO</h1>
+            <h1><i class="fas fa-hammer"></i> FERRETERIA DE PEDRO</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
     <!-- Main content -->
     <section class="content">
-
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Instrucciones</h3>
-
+          <h3 class="card-title">Clasificaciones</h3>
           <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
+            <i class="far fa-plus-square" data-toggle="modal" data-target="#createClasification"></i>
           </div>
         </div>
         <div class="card-body">
-          <p>Este Pedro 🧔🏻Pedro tiene una ferretería desde hace 10 años. El año pasado amplió su negocio y abrió una sucursal  en una ciudad contigua.Actualmente la ferretería de Pedro emplea a 32 personas, es decir, 32 familias dependen del empleo que él genera.
-          <br><br> Originalmente él lleva el control de su negocio🧮 en un Excel, por la abrir la sucursal, se dio cuenta de que eso no era suficiente para llevar en control de su catálogo de productos. <br>
-          Pedro conoció a Waldo Carranza en un evento de Networking  y al platicar acerca de sus negocios, se dio cuenta de que era posible, no sólo una administración más eficiente, sino también automatizada mediante la construcción de una Plataforma a la medida de sus necesidades.
-
-          <br>En esta etapa del proyecto de desarrollo necesita de tu ayuda para terminar desarrollar los siguientes módulos de su plataforma: 
-          <ul>
-            <li>Catálogo de productos</li>
-            <li>Galería de imágenes</li>
-          </ul>
-        A continuación están las instrucciones ✅ para que lo ayudes a eficientar su negocio: <br>
-
-         El proyecto está administrado con el controlador de versiones Git y alojado en GITHUB, por lo que necesitas clonarlo para empezar a trabajar.
-         <ol>
-           <li>Clona el siguiente proyecto de GitHub donde esta el proyecto de Pedro: https://github.com/YarenD/ferreteria.git</li>
-           <li>Una vez clonado crea una rama local con la estructura TUNOMBRE_APELLIDO. Esta rama será la que envíes despues al repositorio.</li>
-           <li>Envia tu cuenta de GITHUB via correo a aldo@adndigital.mx con el asunto "Convocatoria Programación - Usuario GitHub" para agregarte como colaborador al repositorio y que puedas subir tu rama.</li>
-           <li>Se deben ocupar migraciones para crear las tablas.</li>
-         </ol>
-
-        Una vez preparado el proyecto, considera las siguientes requerimientos: 
-
-        <ol>
-          <li><b>Módulo de Clasificaciones</b>
-            <p>
-              Pedro requiere crear un CRUD con las clasificaciones de productos. Los campos para crear una clasificacion son: id (primary key), nombre, descripcion, color. Quiere que lleven un color para poder identificar visualmente y rápido en el catalogo de productos a que clasificación pertenence<br>
-              Se tienen que generar la vista donde liste todas las clasificaciones con la siguiente información: nombre, descripcion, color, productos (cantidad de productos que pertenencen a esa clasificacion).
-              Pedro también podrá editar o borrar clasificaciones.
-            </p>
-          </li>
-          <li><b>Módulo de productos </b>
-            <p>
-              Se requiere hacer un CRUD de productos con la siguiente información que ocupa Pedro: id (primary key), id_clasificacion(relacion con la tabla de clasificaciones), sku (string), nombre, unidad_medida (string), descripcion (text), precio (decimal), foto(archivo imagen). <br>
-              Se tienen que generar la vista donde liste todos los productos. En la lista Pedro quiere que se muestre sku, nombre, clasificación (el nombre NO el id y que se muestre del color de la clasificación), precio (en formato moneda).
-              Pedro también podrá editar o borrar productos.
-            </p>
-          </li>
-
-          <li><b>Galeria </b>
-            <p>
-              Pedro quiere ver una galería con todas las imagenes de los productos que tiene en la base de datos.
-            </p>
-          </li>
-        </ol>
-
-        <p>
-          <p>Nota:</p> Recuerda que tienes hasta las 23:59 del jueves 12/02/2021 por que el viernes Pedro tiene que realizar una presentación de su proyecto.
-        </p>
-
+            <div class="col-12">
+                 <!--  Clasifications Table -->
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="thead">
+                        <tr>
+                            <th scope="col">SKU</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Clasificación</th>
+                            <th scope="col">precio</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="datos_clasificaciones">
+                    </tbody>
+                </table>
+                 <!--  /.Table -->
+            </div>
         </div>
       </div>
       <!-- /.card -->
-
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
+  @include('moduls.clasifications.sections.create_clasification')
+  @include('moduls.clasifications.sections.update_clasification')
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.5
@@ -209,11 +172,11 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- AdminLTE App -->
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.0/dist/js/adminlte.min.js"></script>
 </body>
 </html>
+
