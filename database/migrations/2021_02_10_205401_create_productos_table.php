@@ -20,7 +20,7 @@ class CreateProductosTable extends Migration
             $table->string('unidad_medida');
             $table->text('descripcion');
             $table->decimal('precio', 20, 2);
-            $table->string('imagen');
+            $table->string('imagen')->nullable();
             $table->bigInteger('clasificacion_id')->unsigned();
             $table->foreign('clasificacion_id')->references('id')->on('clasificacions');
             $table->timestamps();

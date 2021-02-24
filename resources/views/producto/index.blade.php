@@ -30,29 +30,14 @@
                             <th>SKU</th>
                             <th>Nombre</th>
                             <th>Clasificación</th>
+                            <th>Descripción</th>
+                            <th>Unidad de medida</th>
                             <th>Precio</th>
+                            <th>Fecha</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($productos as $producto)
-                        <tr>
-                        <td>{{$producto->sku}}</td>
-                        <td>{{$producto->nombre}}</td>
-                        <td><div class="" style="display: inline-block;color:{{$producto->clasificacion->color}};background-color:{{$producto->clasificacion->color}}">......</div> {{$producto->clasificacion->nombre}} </td>
-                        <td>$ @money($producto->precio)</td>
-                            <td>
-                               <a href="{{ route('producto.edit',['producto'=> $producto->id])}}" class="btn btn-warning  d-block"><i class="far fa-edit"></i> Editar</a>
-                               <form method="POST" action="{{ route('producto.destroy',['producto'=> $producto->id]) }}">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger btn-block" type="submit"><i class="far fa-trash-alt"></i> Eliminar</button>
-                              </form>
-                               
-                            </td>
-                        </tr>
-                        @endforeach
-                    
                     </tbody>
                    
                   </table>    
@@ -63,23 +48,75 @@
 @section('script')
 
 <!-- DataTables -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/dataTables.bootstrap4.min.js" integrity="sha512-OQlawZneA7zzfI6B1n1tjUuo3C5mtYuAWpQdg+iI9mkDoo7iFzTqnQHf+K5ThOWNJ9AbXL4+ZDwH7ykySPQc+A==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.2.7/dataTables.responsive.min.js" integrity="sha512-4ecidd7I1XWwmLVzfLUN0sA0t2It86ti4qwPAzXW7B0/yIScpiOj7uyvFgu/ieGTEFjO5Ho98RZIqt75+ZZhdA==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-responsive-bs/2.2.7/responsive.bootstrap.min.js" integrity="sha512-LVROG6J6mNjjR8g1krDPCuo0JVs8CWI9HtbcR92NOb+McYM3+5Al8u4ehbpum3BPG7ehCRtP90UvB9UaPzNfiA==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-responsive-bs/2.2.7/responsive.bootstrap.min.js" integrity="sha512-LVROG6J6mNjjR8g1krDPCuo0JVs8CWI9HtbcR92NOb+McYM3+5Al8u4ehbpum3BPG7ehCRtP90UvB9UaPzNfiA==" crossorigin="anonymous"></script> --}}
 
 <script>
     $(function () {
- 
-      $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-      });
+      var tb; 
+
+      var opciones_datatables={
+            "serverSide":true,
+                'ajax': {
+                  'url': "{{route('productos.datatables')}}",
+                  'data': function (d) {
+                        d.unidad_medida = 'eos'
+                    }
+                },
+                "columns":[
+                {data: 'sku', },
+                {data: 'nombre' },
+                {data: 'clasificacion.nombre', name:'clasificacion.nombre' },
+                {data: 'descripcion'},
+                {data: 'unidad_medida' },
+                {data: 'precio', className: "text-right", },
+                {data: 'created_at', className: "text-center text-nowrap", },
+                {data: 'buttons', class: 'text-center text-nowrap'},
+                
+                ],
+                "drawCallback": function(settings){
+                  $('.eliminar_registro').click(function(){
+                        id = $(this).data('id');
+                        alert('¿Estas seguro de eliminar este producto '+id+'?')
+                    });
+                },
+                pageLength: 25,
+                responsive: true,
+                dom: 'Tflgtip',
+                scrollY:        '60vh',
+                scrollCollapse: true,
+                buttons: [
+                    {extend: 'excel', title: 'ordenes'},
+                ],
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ registros por pagina",
+                    "zeroRecords": "No se encontro ningún registro",
+                "info": "Mostrando del _START_ al _END_ de _TOTAL_ registros. (Página _PAGE_ de _PAGES_)",
+                    "infoEmpty": "No hay registros disponibles",
+                    "infoFiltered": "(Filtrado de un total de _MAX_ registros)",
+                    "search": "Buscar:",
+                    "paginate": {
+                        "first":      "Primera",
+                        "last":       "Última",
+                        "next":       "Siguiente",
+                        "previous":   "Anterior"
+                    },
+                "loadingRecords": "Cargando...",
+                    "processing":     "Procesando...",
+                },
+                "order": [[ 3, "desc" ]]
+            }
+
+        
+
+       tb  = $('#example2').DataTable(opciones_datatables);
+
+
+       
+
+
     });
   </script>
 

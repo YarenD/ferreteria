@@ -31,9 +31,10 @@ Route::delete('/clasificacion/{clasificacion}','ClasificacionController@destroy'
 Route::get('/producto', 'ProductoController@index')->name('producto.index');
 Route::get('/producto/create', 'ProductoController@create')->name('producto.create');
 Route::post('/producto','ProductoController@store')->name('producto.store');
-Route::get('/productos', 'ProductoController@show')->name('producto.show');
+Route::get('/productos/{producto}', 'ProductoController@show')->name('producto.show');
 Route::get('/producto/{producto}/edit', 'ProductoController@edit')->name('producto.edit');
 Route::put('/producto/{producto}', 'ProductoController@update')->name('producto.update');
 Route::delete('/producto/{producto}','ProductoController@destroy')->name('producto.destroy');
+Route::get('producto/datatables','ProductoController@datatables')->name('productos.datatables');
 
 //

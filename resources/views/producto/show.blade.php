@@ -28,23 +28,34 @@
    
     <div class="row">
         <div class="col-md-12">
-            <button class="btn btn-default filter-button px-1 py-1" data-filter="all">Todos</button>
-            @foreach ($clasificacions as $clasificacion)    
-             <button class="btn btn-default filter-button px-1 py-1" style="background-color:{{$clasificacion->color}}" data-filter="{{$clasificacion->id}}">{{$clasificacion->nombre}}</button>
-             @endforeach
+            
+            <table class="table w-50">
+              <tr>
+                <td>Nombre</td>
+                <td>{{$producto->nombre}}</td>
+              </tr>
+              <tr>
+                <td>Descripción</td>
+                <td>{{$producto->descripcion}}</td>
+              </tr>
+              <tr>
+                <td>Unidad de medida</td>
+                <td>{{$producto->unidad_medida}}</td>
+              </tr>
+              <tr>
+                <td>Precio</td>
+                <td>{{$producto->precio}}</td>
+              </tr>
+              <tr>
+                <td>Fecha de creación</td>
+                <td>{{$producto->created_at->format('d-m-Y')}}</td>
+              </tr>
+            </table>
         </div>
     </div>
     
 
-      <div class="row">
-        @foreach ($productos as $producto)
-        <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6  px-1 py-1 filter {{$producto->clasificacion->id}} ">
-          <a href="/storage/{{$producto->imagen}}" data-lightbox="{{$producto->clasificacion->id}}" data-title="{{$producto->nombre}}  Precio: $@money($producto->precio)">
-            <img src="/storage/{{$producto->imagen}}" class="img-fluid" style="">
-          </a>
-        </div>
-        @endforeach
-      </div>
+     
     </div>
 </div>
 

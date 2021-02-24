@@ -91,16 +91,7 @@
         </a>
      
       </li>
-      <li class="nav-item has-treeview">
-        <a href="{{route('producto.show')}}" class="nav-link">
-          <i class="far fa-images ml-1"></i>
-          <p>
-           Galeria de Productos
-            
-          </p>
-        </a>
      
-      </li>
       <li class="nav-item has-treeview">
         <a  href="{{ route('logout') }}"  onclick="event.preventDefault();
         document.getElementById('logout-form').submit();" class="nav-link">

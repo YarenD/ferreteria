@@ -80,9 +80,9 @@ class ProductoController extends Controller
     public function show(Producto $producto)
     {
         //
-        $productos = \App\Producto::all();
-        $clasificacions = \App\Clasificacion::all();
-        return view('producto.show',compact('productos','clasificacions'));
+        
+        $clasificaciones = \App\Clasificacion::all();
+        return view('producto.show',compact('producto','clasificaciones'));
     }
 
     /**
@@ -171,6 +171,27 @@ class ProductoController extends Controller
         //eliminar producto
         $producto->delete();
         return redirect()->action('ProductoController@index');
+
+    }
+
+    public function datatables(Request $request){
+
+        $query = Producto::where('unidad_medida','=',$request->unidad_medida)->with('clasificacion');
+
+        return datatables()
+        ->eloquent($query)
+        ->editColumn('created_at', function($producto){
+            return optional($producto->created_at)->format('d-m-Y');
+        })
+        ->editColumn('precio', function($producto){
+            return '$ '.$producto->precio;
+        })
+        ->editColumn('sku', function($producto){
+            return '<a href="'.route('producto.edit', $producto->id).'"> '.$producto->sku.'</a>';
+        })
+        ->addColumn('buttons', 'producto.datatable.buttons')
+        ->rawColumns(['sku','buttons'])
+        ->toJson();
 
     }
 }

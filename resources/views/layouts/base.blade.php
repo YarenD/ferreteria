@@ -17,6 +17,9 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
+  <link href="{{asset('css/dataTables/datatables.min.css')}}" rel="stylesheet">
+  
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -93,16 +96,7 @@
             </a>
          
           </li>
-          <li class="nav-item has-treeview">
-            <a href="{{route('producto.show')}}" class="nav-link">
-              <i class="far fa-images ml-1"></i>
-              <p>
-               Galeria de Productos
-                
-              </p>
-            </a>
          
-          </li>
           <li class="nav-item has-treeview">
             <a  href="{{ route('logout') }}"  onclick="event.preventDefault();
             document.getElementById('logout-form').submit();" class="nav-link">
@@ -154,11 +148,18 @@
 </div>
 <!-- ./wrapper -->
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- AdminLTE App -->
 <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.0/dist/js/adminlte.min.js"></script>
+
+<script src="{{asset('js/dataTables/datatables.min.js') }}"></script>
+<script src="{{asset('js/dataTables/dataTables.bootstrap4.min.js') }}"></script>
+
 @yield('script')
 </body>
 </html>
